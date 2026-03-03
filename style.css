@@ -1,45 +1,67 @@
 .bento {
-  container: inline-size;
+  container-type: inline-size;
   display: grid;
+  grid-auto-rows: auto;
+  grid-auto-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "a a b"
+    "c d b"
+    "c d e";
   gap: var(--spacing-base);
 
   .title {
+    grid-area: a;
     --bg: var(--color-brand-yellow);
   }
 
   .list {
+    grid-area: d;
     --bg: var(--color-brand-coffee);
   }
 
   .image-1 {
+    grid-area: b;
     color: var(--color-text-accent);
   }
 
   .tag {
+    grid-area: e;
     --bg: var(--color-brand-olive);
     font-size: 2rem;
     line-height: 1.2;
+  }
+
+  .image-2 {
+    display: grid;
+    grid-area: c;
+    place-self: stretch;
+    object-fit: cover;
+  }
+}
+
+@container (width < 600px) {
+  .title p {
+    font-size: clamp(14px, 6cqw, 18px);
+  }
+}
+
+@media (max-width: 600px) {
+  .bento {
+    display: grid;
+    grid-template-areas:
+      "a a"
+      "b c"
+      "b c"
+      "d e "
+      "d e ";
   }
 }
 
 .title {
   display: grid;
-  grid-auto-flow: row;
-  grid-template-areas: "h2 h2" "." "p1 p2";
-
-  h2 {
-    grid-area: "h2";
-    place-self: end start;
-  }
-
-  p:has(b) {
-    grid-area: "p1";
-    place-self: start;
-  }
-
-  p:not(b) {
-    grid-area: "p2";
-    place-self: start;
+  div:has(p) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -55,12 +77,15 @@
     grid-column: 1;
   }
   :nth-child(2) {
+    place-self: center stretch;
     grid-row: 1;
     grid-column: 1;
   }
   :nth-child(3) {
+    place-self: center stretch;
     grid-row: 6;
     grid-column: 1;
+    margin: 5px;
   }
 }
 
