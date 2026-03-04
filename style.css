@@ -15,8 +15,20 @@
   }
 
   .list {
+    display: grid;
     grid-area: d;
     --bg: var(--color-brand-coffee);
+    color: white;
+
+    > ul {
+      display: grid;
+      place-self: center center;
+      font-size: clamp(1.45rem, 6cqw, 2.4rem);
+    }
+
+    .highlight {
+      color: var(--color-brand-yellow);
+    }
   }
 
   .image-1 {
@@ -29,6 +41,7 @@
     --bg: var(--color-brand-olive);
     font-size: 2rem;
     line-height: 1.2;
+    font-weight: 600;
   }
 
   .image-2 {
@@ -39,13 +52,39 @@
   }
 }
 
-@container (width < 600px) {
-  .title p {
-    font-size: clamp(14px, 6cqw, 18px);
+@container (width < 700px) {
+  .card.title {
+    display: grid;
+    grid-template-areas:
+      "brewbolt"
+      "h2"
+      "description";
+    grid-template-rows: auto auto auto;
+  }
+
+  .card.title > div {
+    display: contents; /* Gør, at div'en ikke opretter et grid-item */
+  }
+
+  .card.title h2 {
+    grid-area: h2;
+  }
+
+  .card.title p:first-of-type {
+    grid-area: brewbolt;
+  }
+
+  .card.title p:last-of-type {
+    grid-area: description;
+    /* font-size: clamp(14px, 6cqw, 18px); */
+  }
+
+  .card.list {
+    padding: 2rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .bento {
     display: grid;
     grid-template-areas:
@@ -71,6 +110,7 @@
 
   > p {
     text-align: center;
+    margin: 15px;
   }
   img {
     grid-row: 1 / 7;
@@ -85,7 +125,6 @@
     place-self: center stretch;
     grid-row: 6;
     grid-column: 1;
-    margin: 5px;
   }
 }
 
