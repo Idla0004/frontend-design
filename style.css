@@ -15,22 +15,22 @@
 /* Begynd her... */
 .inthedark {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: auto auto;
-}
+  grid-template-columns: 1fr auto;
 
-img {
-  border-radius: 100%;
-  max-width: 200px;
-}
+  img {
+    grid-template-columns: subgrid;
+    border-radius: 100%;
+    max-width: 250px;
+  }
 
-.info {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: 1fr 1fr;
-}
+  .info {
+    place-content: start;
+  }
 
-.svg {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  .svg {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column: 2;
+    grid-row: 2 / 2;
+  }
 }
