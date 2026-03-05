@@ -13,24 +13,43 @@
 }
 
 /* Begynd her... */
-.inthedark {
-  display: grid;
-  grid-template-columns: 1fr auto;
+.info > * + * {
+  margin-top: 12px;
+}
+
+.card {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem 0;
+  margin: 1rem;
 
   img {
-    grid-template-columns: subgrid;
     border-radius: 100%;
-    max-width: 250px;
+    max-width: 150px;
+    align-self: stretch;
   }
 
-  .info {
-    place-content: start;
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 24px;
+    color: cadetblue;
+    font-weight: 600;
   }
 
   .svg {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column: 2;
-    grid-row: 2 / 2;
+    display: flex;
+    color: darkblue;
+    gap: 2rem;
+
+    svg {
+      aspect-ratio: 1;
+      width: 30px;
+    }
   }
 }
