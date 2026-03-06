@@ -10,9 +10,9 @@ article {
 
   h3 {
     --flow-space: 1rlh;
-  }
 
-  h3 + * {
-    --flow-space: 0.25rlh;
+    + * {
+      --flow-space: 0.25rlh;
+    }
   }
 }
