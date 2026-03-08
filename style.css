@@ -1,35 +1,29 @@
 :root {
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
 
-  --step--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
-  --step--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
-  --step-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
-  --step-1: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
-  --step-2: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
-  --step-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
-  --step-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
-  --step-5: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
-  /* --step--1: clamp(0.89rem, 0.86rem + 0.16vw, 1rem);
-  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-  --step-1: clamp(1.25rem, 1.12rem + 0.6vw, 1.5rem);
-  --step-2: clamp(1.56rem, 1.3rem + 1.2vw, 2rem);
+  --step--2: clamp(0.7813rem, 0.7736rem + 0.0341cqi, 0.8rem);
+  --step--1: clamp(0.9375rem, 0.9119rem + 0.1136cqi, 1rem);
+  --step-0: clamp(1.125rem, 1.0739rem + 0.2273cqi, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2631rem + 0.3864cqi, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.4837rem + 0.6057cqi, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.7405rem + 0.9044cqi, 2.4414rem);
+  --step-4: clamp(2.3328rem, 2.0387rem + 1.3072cqi, 3.0518rem);
+  --step-5: clamp(2.7994rem, 2.384rem + 1.8461cqi, 3.8147rem);
+  --step-6: clamp(3.3593rem, 2.8608rem + 2.393cqi, 4.7684rem);
 
-  --space-s: clamp(0, 0.7rem + 0.2vw, 0.9rem);
-  --space-m: clamp(0, 0.9rem + 0.4vw, 1.25rem);
-  --space-l: clamp(0, 1.3rem + 0.8vw, 2rem);
+  --space-s: clamp(1.125rem, 1.0739rem + 0.2273cqi, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6108rem + 0.3409cqi, 1.875rem);
+  --space-l: clamp(2.25rem, 2.1477rem + 0.4545cqi, 2.5rem);
 
   --text-strong: var(--gray-900);
   --text: var(--gray-700);
-  --text-muted: var(--gray-500); */
+  --text-muted: var(--gray-600);
+
+  --code-bg: oklch(0.93 0.02 260);
+
+  line-height: round(down, var(--step-0) * 1.5, 4px);
 }
 
 body {
@@ -37,107 +31,75 @@ body {
 }
 
 article > * + * {
-  margin-block-start: var(--flow-space, 1hlr);
+  margin-block-start: var(--flow-space, 0.5rlh);
 }
 
 article {
   margin-inline: auto;
-  max-inline-size: var(--measure, 80ch);
-  padding: var(--space-l, 2rem) var(--space-m, 1rem);
-  color: var(--text);
-
-  article :is(h1, h2, h3, h4) {
-    color: var(--text-strong);
-  }
-
-  .article h2 + h3 {
-    --flow-space: var(--step-3);
-  }
-}
-
-/* article {
-  --measure: 68ch;
-  --flow-space: 1em;
-  --text-strong: var(--gray-900);
-  --text: var(--gray-700);
-  --text-muted: var(--gray-500);
-
-  max-inline-size: var(--measure);
-  margin-inline: auto;
-  padding: var(--space-l, 2rem) var(--space-m, 1rem);
+  max-inline-size: var(--measure, 90ch);
+  padding: var(--space-l) var(--space-m);
   color: var(--text);
 }
 
-article > * + * {
-  margin-block-start: var(--flow-space);
-}
-
-article :is(h1, h2, h3, h4) {
+article h1,
+article h2,
+article h3,
+article h4 {
   color: var(--text-strong);
-}
-
-.article h2 + h3 {
-  --flow-space: var(--space-3);
-}
-
-h1 {
-  font-size: var(--step-2);
-  padding: var(--space-s);
-
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-}
-h2 {
-  font-size: var(--step-1);
-  padding: var(--space-m);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-
-h3 {
-  font-size: var(--step-0);
-  padding: var(--space-m);
-  line-height: 1.2;
-}
-
-.text-lead {
-  font-size: clamp(1.12rem, 1.02rem + 0.4cqi, 1.28rem);
-  line-height: 1.45;
-}
-
-.article h3 + p {
-  --flow-space: var(--space-4);
+  text-wrap: balance;
 }
 
 p {
-  color: var(--gray-600);
-  max-inline-size: 65ch;
+  font-size: var(--step-0);
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+h1 {
+  font-size: var(--step-5);
+  line-height: 1.08;
+}
+
+h2 {
+  font-size: var(--step-3);
+  --flow-space: 2rlh;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: var(--step-2);
+  --flow-space: 1rlh;
+}
+
+h4 {
+  font-size: var(--step-1);
+}
+
+article :is(p + h2, h2 + h3, figure + p) {
+  --flow-space: var(--space-m);
+}
+
+.text-lead {
+  line-height: 1.3;
+  color: var(--gray-800);
+}
+
+.text-small {
   font-size: var(--step--1);
-  line-height: 1.55;
-  font-weight: 400;
+  line-height: var(--space-s);
+  color: var(--text-muted);
 }
 
-.article .text-small {
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-
-article :is(figcaption) {
-  color: var(--gray-400);
-}
-
-article p + :is(h2, h3) {
-  margin-block-start: 2em;
-}
-
-article :is(h2, h3) + :is(h3, h4) {
-  margin-block-start: 0.35em;
+figure figcaption {
+  line-height: var(--flow-space);
+  color: var(--text-muted);
+  font-size: var(--step--1);
 }
 
 code {
   font-family: var(--font-input, ui-monospace, monospace);
   font-size: 0.9em;
-  background: oklch(0.93 0.02 260);
+  background: var(--code-bg);
   border: 1px solid oklch(0.86 0.02 260);
   border-radius: 0.35rem;
   padding: 0.08em 0.35em;
@@ -147,11 +109,9 @@ a {
   color: oklch(0.48 0.17 265);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.14em;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   color: oklch(64.74% 0.12403 258.051);
 }
-body {
-  font-family: system-ui, sans-serif;
-} */
