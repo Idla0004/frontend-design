@@ -21,7 +21,7 @@ import "../styles/global.css";
     scroll-padding-inline: 2rem;
     overflow-inline: auto;
     gap: var(--card-gap);
-    width: var(--content-width);
+    /* width: var(--content-width); */
     overflow-x: auto;
     list-style: none;
     scroll-snap-type: inline mandatory;
@@ -29,6 +29,7 @@ import "../styles/global.css";
     li {
       flex-basis: 50%;
       flex-shrink: 0;
+      /* width: var(--content-width); */
       background: var(--card-background);
       color: var(--card-text-color);
       border-radius: var(--card-border-radius);
@@ -40,7 +41,7 @@ import "../styles/global.css";
 
       h3 {
         font-weight: 700;
-        font-size: 1.5625rem;
+        font-size: 25px;
       }
     }
   }
