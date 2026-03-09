@@ -1,5 +1,6 @@
 ---
 const { cardContent } = Astro.props;
+import "../styles/global.css";
 ---
 
 <ul class="full-width">
@@ -15,6 +16,32 @@ const { cardContent } = Astro.props;
 
 <style>
   ul {
+    display: flex;
+    padding-inline: 2rem;
+    scroll-padding-inline: 2rem;
+    overflow-inline: auto;
+    gap: var(--card-gap);
+    width: var(--content-width);
+    overflow-x: auto;
     list-style: none;
+    scroll-snap-type: inline mandatory;
+
+    li {
+      flex-basis: 50%;
+      flex-shrink: 0;
+      background: var(--card-background);
+      color: var(--card-text-color);
+      border-radius: var(--card-border-radius);
+      font-size: 1rem;
+      padding: var(--card-padding);
+      align-self: start;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+
+      h3 {
+        font-weight: 700;
+        font-size: 1.5625rem;
+      }
+    }
   }
 </style>
