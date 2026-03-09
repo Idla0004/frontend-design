@@ -17,16 +17,16 @@ import "../styles/global.css";
 <style>
   ul {
     display: flex;
-    padding-inline: 2rem;
-    scroll-padding-inline: 2rem;
-    overflow-inline: auto;
+    list-style: none;
     gap: var(--card-gap);
+    padding-bottom: var(--card-gap);
     overflow-x: auto;
+    overflow-inline: auto;
     list-style: none;
     scroll-snap-type: inline mandatory;
 
     li {
-      flex-basis: 50%;
+      flex-basis: min(400px, 80%);
       flex-shrink: 0;
       background: var(--card-background);
       color: var(--card-text-color);
@@ -36,11 +36,11 @@ import "../styles/global.css";
       align-self: start;
       scroll-snap-align: center;
       scroll-snap-stop: always;
+    }
 
-      h3 {
-        font-weight: 700;
-        font-size: 25px;
-      }
+    h3 {
+      font-weight: 700;
+      font-size: 25px;
     }
   }
 </style>
