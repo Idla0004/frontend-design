@@ -8,7 +8,7 @@ const { id, question, answer, linkBlock } = props;
   <summary>
     <span>
       {question}
-      <PlusIcon />
+      <PlusIcon class="plus-icon" />
     </span>
   </summary>
   <div class="answer">
@@ -24,6 +24,10 @@ const { id, question, answer, linkBlock } = props;
 </details>
 
 <style>
+  details[open] {
+    --r: z 90deg; /* Roterer svg når details er åben */
+  }
+
   details {
     color: hsl(190 30% 12%);
     border-bottom: 1px solid #dadada;
@@ -80,10 +84,7 @@ const { id, question, answer, linkBlock } = props;
           inline-size: auto;
           height: 1lh;
           flex-shrink: 0;
-
-          &details[open] {
-            --r: z 90deg;
-          }
+          transition: transform 0.3s ease; /* transition til svg */
         }
       }
     }
